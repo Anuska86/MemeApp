@@ -177,5 +177,5 @@ function getEmotionsArray(cats) {
       catsEmotions.push(emotion);
     }
   }
-  console.log(catsEmotions);
+  return catsEmotions;
 }
