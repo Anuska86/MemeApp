@@ -2,6 +2,8 @@ html,
 body {
   margin: 0;
   font-family: "Karla", sans-serif;
+  background-color: #fffcf9;
+  color: #5d5c61;
 }
 
 /*typography*/
@@ -19,21 +21,29 @@ h2 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 32px;
+  color: #fffcf9;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 18px;
+  color: #fffcf9;
+  margin: 0;
 }
 
 h3 {
   margin: 25px;
+  color: #f9906f;
+  font-size: 22px;
 }
 
 /* layout */
 
 header {
-  background-color: #67595e;
+  background-color: #ffc7d4;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .header-inner {
@@ -42,17 +52,19 @@ header {
   margin: 0 auto;
   width: 370px;
   gap: 15px;
-  padding: 10px 0 0 0;
+  padding: 15px 0 15px 0;
 }
 
 .pumpkin-img {
   width: 80px;
+  border-radius: 50%;
+  border: 3px solid #fffcf9;
 }
 
 .controls-container {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 250px;
   margin: 0px auto;
 }
 
@@ -61,15 +73,18 @@ header {
 .emotion-radios {
   display: flex;
   flex-direction: column;
-  border: 1px solid #bcbcbc;
-  border-radius: 5px;
+  border: 2px solid #a2e0c7;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .radio {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #bcbcbc;
-  padding: 4px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  background-color: #fffcf9;
+  transition: background-color 0.2s;
 }
 
 label {
@@ -80,9 +95,9 @@ label {
 }
 
 .highlight {
-  background-color: #fff0ee;
-  color: #bd301d;
-  font-weight: bold;
+  background-color: #fff0f5;
+  color: #f9906f;
+  font-weight: 800;
 }
 
 .radio:last-child {
@@ -91,28 +106,39 @@ label {
 
 input[type="radio"] {
   cursor: pointer;
+  transform: scale(1.2);
+  accent-color: #ffc7d4;
 }
 
 .gifs-check {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 16px;
+  margin: 20px;
 }
 
 .gifs-check-label {
   width: unset;
-  margin-right: 5px;
+  margin-right: 8px;
+  font-size: 18px;
 }
 
 .get-image-btn {
-  background-color: #67595e;
-  color: #eed6d3;
+  background-color: #a2e0c7;
+  color: #5d5c61;
   padding: 15px 19px;
   font-size: 24px;
   border: none;
-  border-radius: 5px;
-  margin-bottom: 8px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 4px 0 #7ac7ab;
+}
+
+.get-image-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #7ac7ab;
 }
 
 /* modal */
@@ -126,33 +152,37 @@ input[type="radio"] {
   right: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid #67595e;
-  border-radius: 5px;
-  width: 420px;
-  height: 490px;
-  background-color: #fff0ee;
+  border: 4px solid #f9906f;
+  border-radius: 20px;
+  width: 440px;
+  height: 520px;
+  background-color: #fffcf9;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .cat-img {
-  max-width: 340px;
-  max-height: 420px;
-  border-radius: 5px;
+  max-width: 380px;
+  max-height: 460px;
+  border-radius: 15px;
+  border: 5px solid #ffc7d4;
+  object-fit: contain;
 }
 
 .meme-modal-close-btn {
   position: absolute;
-  top: 2%;
-  right: 2%;
-  background-color: transparent;
-  border: 2px solid #555;
-  color: #555;
+  top: 15px;
+  right: 15px;
+  background-color: #f9906f;
+  border: none;
+  color: #fffcf9;
   border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 14px;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .meme-modal-close-btn:hover {
-  color: white;
-  background-color: #bd301d;
-  border: 2px solid #bd301d;
+  background-color: #ffc7d4;
+  color: #5d5c61;
 }
