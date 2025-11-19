@@ -1,4 +1,4 @@
-import { catsData } from "./catsData";
+import { catsData } from "./catsData.js";
 
 const emotionRadiosDiv = document.getElementById("emotion-radios");
 
@@ -30,4 +30,4 @@ function renderEmotionsRadios(cats) {
   emotionRadiosDiv.innerHTML = radioItemsHtml;
 }
 
-renderEmotionsRadios();
+renderEmotionsRadios(catsData);
