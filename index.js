@@ -2,13 +2,21 @@ import { catsData } from "./catsData.js";
 
 const emotionRadiosDiv = document.getElementById("emotion-radios");
 
-emotionRadiosDiv.addEventListener("change", (e) => {
+emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
+
+function highlightCheckedOption(e) {
+  const currentHighlight = emotionRadiosDiv.querySelector(".highlight");
   const selectedRadio = e.target;
+  const parentContainer = selectedRadio.parentElement;
 
-  const radioId = selectedRadio.id;
+  if (currentHighlight) {
+    currentHighlight.classList.remove("highlight");
+  }
 
-  console.log(`radio button id selected:${radioId}`);
-});
+  selectedRadio.classList.add("highlight");
+
+  parentContainer.classList.add("highlight");
+}
 
 function getEmotionsArray(cats) {
   const catsEmotions = [];
