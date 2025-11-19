@@ -1,19 +1,6 @@
+import { catsData } from "./catsData";
+
 const emotionRadiosDiv = document.getElementById("emotion-radios");
-
-async function getCatsData() {
-  try {
-    const response = await fetch("./catsData.json");
-
-    if (!response.ok) {
-      throw new Error("HTTP error! status: ${response.status");
-    }
-    const catsData = await response.json();
-
-    renderEmotionsRadios(catsData);
-  } catch (error) {
-    console.error("Could not fetch the cats data", error);
-  }
-}
 
 function getEmotionsArray(cats) {
   const catsEmotions = [];
@@ -31,11 +18,16 @@ function renderEmotionsRadios(cats) {
 
   let radioItemsHtml = "";
 
-  for (let emotion of emotions) {
-    radioItemsHtml += `<p>${emotion}</p>`;
+  const uniqueEmotions = [...new Set(emotions)];
+
+  for (let emotion of uniqueEmotions) {
+    radioItemsHtml += `
+            <input type="radio" id="${emotion}" value="${emotion}" name="emotions">
+            <label for="${emotion}">${emotion.toUpperCase()}</label><br>
+        `;
   }
 
   emotionRadiosDiv.innerHTML = radioItemsHtml;
 }
 
-getCatsData();
+renderEmotionsRadios();
