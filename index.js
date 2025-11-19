@@ -21,9 +21,10 @@ function renderEmotionsRadios(cats) {
   const uniqueEmotions = [...new Set(emotions)];
 
   for (let emotion of uniqueEmotions) {
-    radioItemsHtml += `
+    radioItemsHtml += `<div class="radio">
             <input type="radio" id="${emotion}" value="${emotion}" name="emotions">
             <label for="${emotion}">${emotion.toUpperCase()}</label><br>
+            </div>
         `;
   }
 
