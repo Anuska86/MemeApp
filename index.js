@@ -17,16 +17,14 @@ function getMatchingCatsArray() {
     ).value;
     const isOnlyGiftsChecked = onlyGiftsCheckbox.checked;
 
-    const matchingEmotion = catsData.filter((cat) => {
+    const matchingCat = catsData.filter((cat) => {
       if (isOnlyGiftsChecked) {
-        return (
-          cat.emotionTags.includes(selectedEmotion) && cat.isOnlyGiftsChecked
-        );
+        return cat.emotionTags.includes(selectedEmotion) && cat.isGif;
       } else {
         return cat.emotionTags.includes(selectedEmotion);
       }
     });
-    console.log(matchingEmotion);
+    console.log(matchingCat);
   }
 }
 
