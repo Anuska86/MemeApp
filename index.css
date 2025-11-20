@@ -2,7 +2,8 @@ html,
 body {
   margin: 0;
   font-family: "Karla", sans-serif;
-  background-color: #fffcf9;
+  background-image: linear-gradient(to bottom right, #fff0f5, #f9e4e4);
+  background-attachment: fixed;
   color: #5d5c61;
 }
 
@@ -156,9 +157,6 @@ input[type="radio"] {
   transform: translate(-50%, -50%);
   border: 4px solid #f9906f;
   border-radius: 20px;
-  width: 440px;
-  height: 520px;
-  background-color: rgba(0, 0, 0, 0.6);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
@@ -188,6 +186,7 @@ input[type="radio"] {
   position: absolute;
   top: 15px;
   right: 15px;
+  z-index: 20;
   background-color: #f9906f;
   border: none;
   color: #fffcf9;
