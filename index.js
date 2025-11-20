@@ -12,8 +12,9 @@ function getMatchingCatsArray() {
   const checkedRadio = document.querySelector('input[type="radio"]:checked');
 
   if (checkedRadio) {
-    console.log(checkedRadio.value);
-    return checkedRadio.value;
+    const selectedEmotion = checkedRadio.value;
+
+    return selectedEmotion;
   }
 
   return null;
