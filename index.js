@@ -6,25 +6,22 @@ const getImageBtn = document.getElementById("get-image-btn");
 const onlyGiftsCheckbox = document.getElementById("gifs-only-option");
 
 emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
+getImageBtn.addEventListener("click", getMatchingCatsArray);
 
 //Get the cats
 
 function getMatchingCatsArray() {
-  const checkedRadio = document.querySelector('input[type="radio"]:checked');
-  const isOnlyGiftsChecked = onlyGiftsCheckbox.checked;
+  if (document.querySelector('input[type="radio"]:checked')) {
+    const selectedEmotion = document.querySelector(
+      'input[type="radio"]:checked'
+    ).value;
+    const isOnlyGiftsChecked = onlyGiftsCheckbox.checked;
 
-  console.log(isOnlyGiftsChecked);
-
-  if (checkedRadio) {
-    const selectedEmotion = checkedRadio.value;
-
-    return selectedEmotion;
+    const matchingEmotion = catsData.filter((emotion) => {
+      return emotion.emotionTags.includes(selectedEmotion);
+    });
   }
-
-  return null;
 }
-
-getImageBtn.addEventListener("click", getMatchingCatsArray);
 
 //Highlight the choice
 
