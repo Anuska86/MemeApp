@@ -6,9 +6,11 @@ const getImageBtn = document.getElementById("get-image-btn");
 const onlyGiftsCheckbox = document.getElementById("gifs-only-option");
 const memeModalInner = document.getElementById("meme-modal-inner");
 const memeModal = document.getElementById("meme-modal");
+const closeModalBtn = document.getElementById("meme-modal-close-btn");
 
 emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
 getImageBtn.addEventListener("click", renderCat);
+closeModalBtn.addEventListener("click", closeModal);
 
 //Get the matching cats
 
@@ -112,3 +114,9 @@ function renderEmotionsRadios(cats) {
 }
 
 renderEmotionsRadios(catsData);
+
+//Close the modal
+
+function closeModal() {
+  memeModal.style.display = "none";
+}
