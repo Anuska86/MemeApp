@@ -4,11 +4,13 @@ const emotionRadiosDiv = document.getElementById("emotion-radios");
 
 const getImageBtn = document.getElementById("get-image-btn");
 const onlyGiftsCheckbox = document.getElementById("gifs-only-option");
+const memeModalInner = document.getElementById("meme-modal-inner");
+const memeModal = document.getElementById("meme-modal");
 
 emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
-getImageBtn.addEventListener("click", getMatchingCatsArray);
+getImageBtn.addEventListener("click", renderCat);
 
-//Get the cats
+//Get the matching cats
 
 function getMatchingCatsArray() {
   if (document.querySelector('input[type="radio"]:checked')) {
@@ -26,6 +28,40 @@ function getMatchingCatsArray() {
     });
     return matchingCat;
   }
+
+  return [];
+}
+
+//fetch a single cat
+
+function getRandomCat(catsArray) {
+  const randomIndex = Math.floor(Math.random() * catsArray.length);
+  return catsArray[randomIndex];
+}
+
+function getSingleCat() {
+  const catsArray = getMatchingCatsArray();
+
+  if (catsArray.length === 1) {
+    return catsArray[0];
+  } else if (catsArray.length > 1) {
+    return getRandomCat(catsArray);
+  } else {
+    console.log("No matching cats found.");
+  }
+}
+
+function renderCat() {
+  const catObject = getSingleCat();
+
+  memeModalInner.innerHTML = `
+    <img 
+    class="cat-img" 
+    src="./images/${catObject.image}"
+    alt="${catObject.alt}"
+    >
+    `;
+  memeModal.style.display = "flex";
 }
 
 //Highlight the choice
