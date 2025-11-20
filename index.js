@@ -13,8 +13,6 @@ function highlightCheckedOption(e) {
     currentHighlight.classList.remove("highlight");
   }
 
-  selectedRadio.classList.add("highlight");
-
   parentContainer.classList.add("highlight");
 }
 
