@@ -19,9 +19,7 @@ function getMatchingCatsArray() {
   return null;
 }
 
-getImageBtn.addEventListener("click", () => {
-  getMatchingCatsArray();
-});
+getImageBtn.addEventListener("click", getMatchingCatsArray);
 
 //Highlight the choice
 
