@@ -17,8 +17,8 @@ function getMatchingCatsArray() {
     ).value;
     const isOnlyGiftsChecked = onlyGiftsCheckbox.checked;
 
-    const matchingEmotion = catsData.filter((emotion) => {
-      return emotion.emotionTags.includes(selectedEmotion);
+    const matchingEmotion = catsData.filter((cat) => {
+      return cat.emotionTags.includes(selectedEmotion);
     });
   }
 }
