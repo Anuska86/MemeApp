@@ -96,7 +96,7 @@ label {
 
 .highlight {
   background-color: #fff0f5;
-  color: #f9906f;
+  color: #5d5c61;
   font-weight: 800;
 }
 
@@ -136,6 +136,11 @@ input[type="radio"] {
   box-shadow: 0 4px 0 #7ac7ab;
 }
 
+.get-image-btn:focus-visible {
+  outline: 4px solid #ffc7d4;
+  outline-offset: 3px;
+}
+
 .get-image-btn:active {
   transform: translateY(4px);
   box-shadow: 0 0px 0 #7ac7ab;
@@ -146,18 +151,29 @@ input[type="radio"] {
 .meme-modal {
   display: none; /*flex when displayed*/
   position: fixed;
-  margin: auto;
-  top: 80px;
-  left: 0;
-  right: 0;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #f9906f;
+  border-radius: 20px;
+  width: 440px;
+  height: 520px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+#meme-modal-inner {
   border: 4px solid #f9906f;
   border-radius: 20px;
   width: 440px;
   height: 520px;
   background-color: #fffcf9;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .cat-img {
