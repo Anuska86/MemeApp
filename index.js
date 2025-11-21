@@ -9,6 +9,9 @@ const memeModal = document.getElementById("meme-modal");
 const closeModalBtn = document.getElementById("meme-modal-close-btn");
 
 emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
+console.log("Listener attached");
+getImageBtn.addEventListener("click", renderCat);
+
 getImageBtn.addEventListener("click", renderCat);
 closeModalBtn.addEventListener("click", closeModal);
 
@@ -43,18 +46,28 @@ function getRandomCat(catsArray) {
 
 function getSingleCat() {
   const catsArray = getMatchingCatsArray();
+  console.log("Matching cats:", catsArray);
 
   if (catsArray.length === 1) {
+    console.log("One match found");
+
     return catsArray[0];
   } else if (catsArray.length > 1) {
+    console.log("Multiple matches found");
+
     return getRandomCat(catsArray);
   } else {
     console.log("No matching cats found.");
+    return null;
   }
 }
 
 function renderCat() {
   const catObject = getSingleCat();
+  if (!catObject) {
+    console.log("No cat to render");
+    return;
+  }
 
   memeModalInner.innerHTML = `
     <img 
@@ -64,6 +77,7 @@ function renderCat() {
     >
     `;
   memeModal.style.display = "flex";
+  console.log("Modal opened");
 }
 
 //Highlight the choice

@@ -5,6 +5,10 @@ body {
   background-image: linear-gradient(to bottom right, #fff0f5, #f9e4e4);
   background-attachment: fixed;
   color: #5d5c61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /*typography*/
@@ -51,7 +55,8 @@ header {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  width: 370px;
+  width: 90%;
+  max-width: 450px;
   gap: 15px;
   padding: 15px 0 15px 0;
 }
@@ -65,7 +70,8 @@ header {
 .controls-container {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 80%;
+  max-width: 400px;
   margin: 0px auto;
 }
 
@@ -146,32 +152,61 @@ input[type="radio"] {
   transform: translateY(4px);
   box-shadow: 0 0px 0 #7ac7ab;
 }
+/*tablet container*/
+.tablet-container {
+  width: 768px;
+  max-width: 90vw;
+  height: 1024px;
+  max-height: 90vh;
+  position: relative;
+  margin: 50px auto;
+  border: 15px solid #333;
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  background-color: #fffcf9;
+}
+
+.tablet-container::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #ccc;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* modal */
 
 .meme-modal {
-  display: none; /*flex when displayed*/
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 4px solid #f9906f;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 480px;
+  height: 640px;
+  border-radius: 40px;
+  border: 6px solid #f9906f;
+  background-color: #fffcf9;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   z-index: 10;
+  overflow: hidden;
 }
 
 #meme-modal-inner {
-  border: 4px solid #f9906f;
-  border-radius: 20px;
-  width: 440px;
-  height: 520px;
-  background-color: #fffcf9;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  background-color: #fffcf9;
 }
 
 .cat-img {
@@ -200,4 +235,23 @@ input[type="radio"] {
 .meme-modal-close-btn:hover {
   background-color: #ffc7d4;
   color: #5d5c61;
+}
+
+/*responsive*/
+
+@media (max-width: 500px) {
+  .meme-modal {
+    width: 90%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  #meme-modal-inner {
+    flex-direction: column;
+  }
+
+  .cat-img {
+    max-width: 90%;
+    max-height: 80%;
+  }
 }
