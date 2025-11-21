@@ -167,4 +167,16 @@ export const catsData = [
     image: "sad.gif",
     alt: "A cat looking sad",
   },
+  {
+    emotionTags: ["obsessed"],
+    isGif: true,
+    image: "obsessed.gif",
+    alt: "A cat intensely staring, looking obsessed",
+  },
+  {
+    emotionTags: ["obsessed"],
+    isGif: true,
+    image: "obsessed2.gif",
+    alt: "A cat intensely staring, looking obsessed",
+  },
 ];
