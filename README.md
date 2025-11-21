@@ -19,6 +19,8 @@ Dynamic Image Rendering: Fetches a random cat image/GIF from the local dataset t
 
 Modal Display: Displays the selected "meme" in a beautiful, centered modal window.
 
+Easy Sharing: Dedicated buttons inside the modal allow users to Download the image or Copy the Link to share the meme easily.
+
 Tablet Simulation: The application interface is housed within a stylish, centered container to simulate a tablet viewing experience.
 
 🚀 Getting Started

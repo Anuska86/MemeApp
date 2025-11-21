@@ -9,11 +9,35 @@ const memeModal = document.getElementById("meme-modal");
 const closeModalBtn = document.getElementById("meme-modal-close-btn");
 
 emotionRadiosDiv.addEventListener("change", highlightCheckedOption);
-console.log("Listener attached");
+
 getImageBtn.addEventListener("click", renderCat);
 
 getImageBtn.addEventListener("click", renderCat);
 closeModalBtn.addEventListener("click", closeModal);
+
+memeModalInner.addEventListener("click", (e) => {
+  const button = e.target.closest(".copy-btn");
+
+  if (button) {
+    e.preventDefault();
+
+    const imagePath = button.dataset.imageSrc;
+    const fullUrl = window.location.origin + imagePath.substring(1);
+
+    navigator.clipboard
+      .writeText(fullUrl)
+      .then(() => {
+        button.textContent = "✅ Copied!";
+        setTimeout(() => {
+          button.textContent = "📋 Copy Link";
+        }, 1500);
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+        button.textContent = "❌ Failed!";
+      });
+  }
+});
 
 //Get the matching cats
 
@@ -46,15 +70,10 @@ function getRandomCat(catsArray) {
 
 function getSingleCat() {
   const catsArray = getMatchingCatsArray();
-  console.log("Matching cats:", catsArray);
 
   if (catsArray.length === 1) {
-    console.log("One match found");
-
     return catsArray[0];
   } else if (catsArray.length > 1) {
-    console.log("Multiple matches found");
-
     return getRandomCat(catsArray);
   } else {
     console.log("No matching cats found.");
@@ -70,14 +89,27 @@ function renderCat() {
   }
 
   memeModalInner.innerHTML = `
-    <img 
-    class="cat-img" 
-    src="./images/${catObject.image}"
-    alt="${catObject.alt}"
-    >
+    <div class="meme-content">
+      <img 
+      class="cat-img" 
+      src="./images/${catObject.image}"
+      alt="${catObject.alt}"
+      >
+      <div class="meme-actions">
+        <a href="./images/${catObject.image}" 
+           download="${catObject.alt || "cat-meme"}" 
+           class="action-btn download-btn">
+          ⬇️ Download Image
+        </a>
+        <button class="action-btn copy-btn" data-image-src="./images/${
+          catObject.image
+        }">
+          📋 Copy Link
+        </button>
+      </div>
+    </div>
     `;
   memeModal.style.display = "flex";
-  console.log("Modal opened");
 }
 
 //Highlight the choice
@@ -128,6 +160,33 @@ function renderEmotionsRadios(cats) {
 }
 
 renderEmotionsRadios(catsData);
+
+// Function to handle link copying
+function copyImageLink(e) {
+  const button = e.target.closest(".copy-btn");
+  if (!button) return;
+
+  // Get the relative path from the data attribute
+  const imagePath = button.dataset.imageSrc;
+
+  // Construct the full absolute URL (important for sharing)
+  // This assumes the meme is being served from a known base URL
+  const fullUrl = window.location.origin + imagePath.substring(1);
+
+  navigator.clipboard
+    .writeText(fullUrl)
+    .then(() => {
+      // Provide visual feedback to the user
+      button.textContent = "✅ Copied!";
+      setTimeout(() => {
+        button.textContent = "📋 Copy Link";
+      }, 1500);
+    })
+    .catch((err) => {
+      console.error("Failed to copy text: ", err);
+      button.textContent = "❌ Failed!";
+    });
+}
 
 //Close the modal
 
