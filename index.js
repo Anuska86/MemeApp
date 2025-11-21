@@ -88,28 +88,39 @@ function renderCat() {
     return;
   }
 
+  const imagePath = `./images/${catObject.image}`;
+
   memeModalInner.innerHTML = `
-    <div class="meme-content">
-      <img 
-      class="cat-img" 
-      src="./images/${catObject.image}"
-      alt="${catObject.alt}"
-      >
-      <div class="meme-actions">
-        <a href="./images/${catObject.image}" 
-           download="${catObject.alt || "cat-meme"}" 
-           class="action-btn download-btn">
-          ⬇️ Download Image
-        </a>
-        <button class="action-btn copy-btn" data-image-src="./images/${
-          catObject.image
-        }">
-          📋 Copy Link
-        </button>
-      </div>
+    <div class="loading-message">
+      <h3>Fetching Cat Meme... 😻</h3>
     </div>
-    `;
+  `;
   memeModal.style.display = "flex";
+
+  const img = new Image();
+  img.src = imagePath;
+
+  img.onload = function () {
+    memeModalInner.innerHTML = `
+      <div class="meme-content">
+        <img 
+        class="cat-img" 
+        src="${imagePath}"
+        alt="${catObject.alt}"
+        >
+        <div class="meme-actions">
+          <a href="${imagePath}" 
+             download="${catObject.alt || "cat-meme"}" 
+             class="action-btn download-btn">
+            ⬇️ Download Image
+          </a>
+          <button class="action-btn copy-btn" data-image-src="${imagePath}">
+            📋 Copy Link
+          </button>
+        </div>
+      </div>
+    `;
+  };
 }
 
 //Highlight the choice

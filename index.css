@@ -277,6 +277,19 @@ input[type="radio"] {
   color: #5d5c61;
 }
 
+/**/
+
+.loading-message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eed6d3;
+  font-size: 20px;
+  text-align: center;
+}
+
 /*responsive*/
 
 @media (max-width: 500px) {
