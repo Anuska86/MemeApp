@@ -84,3 +84,7 @@ Responsive Tablet View: The entire app is contained within a CSS-styled .tablet-
 Custom Fonts: Uses the Karla font from Google Fonts.
 
 Color Palette: A soft, appealing palette centered around pinks (#ffc7d4, #fff0f5) and greens (#a2e0c7).
+
+## Author
+
+**Ana Sappia Rey** — [GitHub](https://github.com/anuska86)
